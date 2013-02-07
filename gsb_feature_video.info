@@ -16,15 +16,9 @@ dependencies[] = number
 dependencies[] = panopoly_core
 dependencies[] = taxonomy
 dependencies[] = text
+datestamp = 1360254821
 features[defaultconfig][] = strongarm:field_bundle_settings_fieldable_panels_pane__gsb_video_fpp
 features[features_api][] = api:1
-features[field][] = fieldable_panels_pane-gsb_video_fpp-field_event_series
-features[field][] = fieldable_panels_pane-gsb_video_fpp-field_first_name
 features[field][] = fieldable_panels_pane-gsb_video_fpp-field_gsb_video_video
-features[field][] = fieldable_panels_pane-gsb_video_fpp-field_last_name
-features[field][] = fieldable_panels_pane-gsb_video_fpp-field_person_title
-features[field][] = fieldable_panels_pane-gsb_video_fpp-field_record_date
-features[field][] = fieldable_panels_pane-gsb_video_fpp-field_video_caption
 features[field][] = fieldable_panels_pane-gsb_video_fpp-field_video_description
-features[field][] = fieldable_panels_pane-gsb_video_fpp-field_video_duration
-features[field][] = fieldable_panels_pane-gsb_video_fpp-field_video_name
+
