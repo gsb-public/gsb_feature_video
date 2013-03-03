@@ -32,3 +32,17 @@
 
 }
 
+/**
+ * Implements hook_form_alter()
+ */
+function gsb_feature_video_form_alter(&$form, &$form_state, $form_id) {
+
+  if ($form_id == 'fieldable_panels_panes_fieldable_panels_pane_content_type_edit_form' && $form['#bundle'] == 'gsb_video_fpp') {
+      $language = $form['field_video_description']['#language'];
+      $form['field_video_description'][$language][0]['value']['#maxlength'] = '150';
+      $form['field_video_description'][$language][0]['value']['#description'] = t('Limited to 150 characters');
+  }
+
+}
+
+
