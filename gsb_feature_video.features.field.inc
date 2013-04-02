@@ -10,14 +10,90 @@
 function gsb_feature_video_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'fieldable_panels_pane-gsb_video_fpp-field_gsb_video_video'.
-  $fields['fieldable_panels_pane-gsb_video_fpp-field_gsb_video_video'] = array(
+  // Exported field: 'fieldable_panels_pane-video-field_body'.
+  $fields['fieldable_panels_pane-video-field_body'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_gsb_video_video',
+      'field_name' => 'field_body',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'text_long',
+    ),
+    'field_instance' => array(
+      'bundle' => 'video',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 6,
+        ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'fieldable_panels_pane',
+      'field_name' => 'field_body',
+      'label' => 'Description',
+      'required' => 1,
+      'settings' => array(
+        'linkit' => array(
+          'enable' => 0,
+          'insert_plugin' => '',
+        ),
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'maxlength_js' => '150',
+          'maxlength_js_enforce' => 0,
+          'maxlength_js_label' => '',
+          'maxlength_js_truncate_html' => 0,
+          'rows' => '3',
+        ),
+        'type' => 'text_textarea',
+        'weight' => '4',
+      ),
+      'workbench_access_field' => 0,
+    ),
+  );
+
+  // Exported field: 'fieldable_panels_pane-video-field_file_single_public'.
+  $fields['fieldable_panels_pane-video-field_file_single_public'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_file_single_public',
       'foreign keys' => array(
         'fid' => array(
           'columns' => array(
@@ -42,22 +118,26 @@ function gsb_feature_video_field_default_fields() {
       'type' => 'file',
     ),
     'field_instance' => array(
-      'bundle' => 'gsb_video_fpp',
+      'bundle' => 'video',
       'deleted' => '0',
       'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'file_entity',
-          'settings' => array(
-            'file_view_mode' => 'preview',
-          ),
-          'type' => 'file_rendered',
-          'weight' => '0',
+          'module' => 'file',
+          'settings' => array(),
+          'type' => 'file_default',
+          'weight' => 5,
+        ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
       ),
       'entity_type' => 'fieldable_panels_pane',
-      'field_name' => 'field_gsb_video_video',
+      'field_name' => 'field_file_single_public',
       'label' => 'Video',
       'required' => 1,
       'settings' => array(
@@ -95,87 +175,24 @@ function gsb_feature_video_field_default_fields() {
             'media_internet' => 0,
             'upload' => 0,
           ),
+          'maxlength_js_label' => '',
           'progress_indicator' => 'throbber',
         ),
         'type' => 'media_generic',
         'weight' => '1',
       ),
+      'workbench_access_field' => 0,
     ),
   );
 
-  // Exported field: 'fieldable_panels_pane-gsb_video_fpp-field_video_description'.
-  $fields['fieldable_panels_pane-gsb_video_fpp-field_video_description'] = array(
+  // Exported field: 'fieldable_panels_pane-video-field_tile'.
+  $fields['fieldable_panels_pane-video-field_tile'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_video_description',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'text',
-      'settings' => array(),
-      'translatable' => '0',
-      'type' => 'text_long',
-    ),
-    'field_instance' => array(
-      'bundle' => 'gsb_video_fpp',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '3',
-        ),
-      ),
-      'entity_type' => 'fieldable_panels_pane',
-      'field_name' => 'field_video_description',
-      'label' => 'Video Description',
-      'required' => 0,
-      'settings' => array(
-        'linkit' => array(
-          'enable' => 0,
-          'insert_plugin' => '',
-        ),
-        'text_processing' => '0',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'text',
-        'settings' => array(
-          'rows' => '5',
-        ),
-        'type' => 'text_textarea',
-        'weight' => '3',
-      ),
-    ),
-  );
-
-  // Exported field: 'fieldable_panels_pane-gsb_video_fpp-field_video_title'.
-  $fields['fieldable_panels_pane-gsb_video_fpp-field_video_title'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_video_title',
+      'field_name' => 'field_tile',
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -198,7 +215,7 @@ function gsb_feature_video_field_default_fields() {
       'type' => 'text',
     ),
     'field_instance' => array(
-      'bundle' => 'gsb_video_fpp',
+      'bundle' => 'video',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -208,12 +225,18 @@ function gsb_feature_video_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 4,
+          'weight' => 7,
+        ),
+        'ical' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
       ),
       'entity_type' => 'fieldable_panels_pane',
-      'field_name' => 'field_video_title',
-      'label' => 'Video Title',
+      'field_name' => 'field_tile',
+      'label' => 'Tile',
       'required' => 0,
       'settings' => array(
         'linkit' => array(
@@ -227,19 +250,22 @@ function gsb_feature_video_field_default_fields() {
         'active' => 1,
         'module' => 'text',
         'settings' => array(
+          'maxlength_js' => 0,
+          'maxlength_js_label' => '',
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '2',
+        'weight' => '3',
       ),
+      'workbench_access_field' => 0,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Description');
+  t('Tile');
   t('Video');
-  t('Video Description');
-  t('Video Title');
 
   return $fields;
 }
