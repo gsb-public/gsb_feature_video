@@ -12,7 +12,7 @@
  * 'video'.
  *
  */
- function gsb_feature_video_entity_info_alter(&$entity_info) {
+function gsb_feature_video_entity_info_alter(&$entity_info) {
 
   // create the GSB Video FPP
 
@@ -29,5 +29,137 @@
       'access arguments' => array('administer fieldable panels panes'),
     ),
   );
+}
 
+// Formatter
+
+/**
+ * Implements hook_field_formatter_info().
+ *
+ * Here we tell Drupal about our custom field formatter -
+ * 'gsb_slideshow_default_format'.
+ */
+function gsb_feature_video_field_formatter_info() {
+  return array(
+    'gsb_video_format' => array(
+      'label' => t('Video formatter for GSB'),
+      'field types' => array('file'),
+      'settings' => array('view_mode' => 'full'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function gsb_feature_video_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+
+  module_load_include('inc', 'media_youtube', '/includes/media_youtube.formatters.inc');
+
+  $element = array();
+  $title = !empty($entity->field_tile) ? $entity->field_tile['und'][0]['value'] : '';
+  $summary = !empty($entity->field_body) ? $entity->field_body['und'][0]['value'] : '';
+  $video = !empty($entity->field_file_single_public) ? $entity->field_file_single_public['und'][0] : '';
+
+  $summary_trim = array(
+    'max_length' => 150,
+    'word_boundary' => true,
+    'ellipsis' => true,
+    'html' => true,
+  );
+
+  if (!empty($video)) {
+    // Get the video path.
+    $video_path = drupal_realpath($video['uri']);
+
+    if ($video['filemime'] == 'video/youtube') {
+      $video_parts = drupal_parse_url($video_path);
+      if (stristr($video_parts['path'], 'watch')) {
+        $video_path = str_replace('watch', 'embed', $video_parts['path']) . "/" . $video_parts['query']['v'];
+      }
+      $video_path .= '?autoplay=1';
+    }
+
+    $display['settings'] = array('image_style' => '270x158');
+
+    $img_tag = theme_image_style($array_style);
+
+    $image_render_array = media_youtube_file_formatter_image_view((object) $video, $display, LANGUAGE_NONE);
+
+    $array_style = array(
+      'width' => NULL,
+      'height' => NULL,
+      'path' => $image_render_array['#path'],
+      'style_name' => '270x158',
+      'attributes' => array(
+        'class' => 'test',
+      ),
+    );
+
+    $element[0] = array(
+      '#type' => 'container',
+      '#attributes' => array(
+        'class' => 'shadowed-box',
+      ),
+      array(
+        '#type' => 'container',
+        '#attributes' => array(
+          'class' => array(
+            'video-image',
+          )
+        ),
+        array(
+          '#type' => 'link',
+          '#href' => $video_path,
+          '#title' => $img_tag,
+          '#options' => array(
+            'html' => TRUE,
+          ),
+          '#label' => '',
+          '#attributes' => array(
+            'class' => array(
+              "fancybox",
+              "fancybox.iframe",
+            ),
+          ),
+        ),
+        array(
+          '#theme' => 'media_youtube_video',
+          '#uri' => $video['uri'],
+          '#width' => NULL,
+          '#height' => NULL,
+          '#autoplay' => FALSE,
+          '#fullscreen' => TRUE,
+        ),
+        array(
+          '#type' => 'html_tag',
+          '#tag' => 'span',
+          '#attributes' => array(
+            "class" => "video-play-icon"
+          ),
+          '#value' => "",
+        ),
+      ),
+      array(
+        '#type' => 'container',
+        '#attributes' => array(
+          'class' => array(
+            "cp-content",
+          ),
+        ),
+        array(
+          '#type' => 'html_tag',
+          '#tag' => 'h4',
+          '#value' => $title,
+          '#value_prefix' => '<i></i>',
+        ),
+        array(
+          '#type' => 'html_tag',
+          '#tag' => 'p',
+          '#value' => views_trim_text($summary_trim, $summary),
+        ),
+      )
+    );
+  }
+  return $element;
 }
