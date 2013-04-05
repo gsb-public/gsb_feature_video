@@ -1,9 +1,9 @@
 <?php
+
 /**
  * @file
  * Code for the GSB Feature Video feature.
  */
-
 
 /**
  * Implements hook_entity_info_alter().
@@ -82,8 +82,6 @@ function gsb_feature_video_field_formatter_view($entity_type, $entity, $field, $
 
     $display['settings'] = array('image_style' => '270x158');
 
-    $img_tag = theme_image_style($array_style);
-
     $image_render_array = media_youtube_file_formatter_image_view((object) $video, $display, LANGUAGE_NONE);
 
     $array_style = array(
@@ -95,6 +93,7 @@ function gsb_feature_video_field_formatter_view($entity_type, $entity, $field, $
         'class' => 'test',
       ),
     );
+    $img_tag = theme_image_style($array_style);
 
     $element[0] = array(
       '#type' => 'container',
