@@ -4,6 +4,12 @@
  * Code for the GSB Feature Video feature.
  */
 
+include_once 'gsb_feature_video.features.inc';
+/**
+ * @file
+ * Code for the GSB Feature Video feature.
+ */
+
 
 /**
  * Implements hook_entity_info_alter().

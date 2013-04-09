@@ -44,11 +44,13 @@ function gsb_feature_video_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 6,
+          'settings' => array(
+            'conditions' => array(),
+          ),
+          'type' => 'text_plain',
+          'weight' => '3',
         ),
         'ical' => array(
           'label' => 'above',
@@ -123,11 +125,15 @@ function gsb_feature_video_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
-          'module' => 'file',
-          'settings' => array(),
-          'type' => 'file_default',
-          'weight' => 5,
+          'label' => 'hidden',
+          'module' => 'gsb_field_formatter',
+          'settings' => array(
+            'conditions' => array(),
+            'file_view_mode' => 'default',
+            'preview_view_mode' => 'preview',
+          ),
+          'type' => 'gsb_field_formatter_responsive_video',
+          'weight' => '0',
         ),
         'ical' => array(
           'label' => 'above',
@@ -221,11 +227,13 @@ function gsb_feature_video_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 7,
+          'settings' => array(
+            'conditions' => array(),
+          ),
+          'type' => 'text_plain',
+          'weight' => '2',
         ),
         'ical' => array(
           'label' => 'above',
