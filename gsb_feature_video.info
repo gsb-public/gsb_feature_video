@@ -21,4 +21,4 @@ features[defaultconfig][] = strongarm:field_bundle_settings_fieldable_panels_pan
 features[features_api][] = api:1
 features[field][] = fieldable_panels_pane-video-field_body
 features[field][] = fieldable_panels_pane-video-field_file_single_public
-features[field][] = fieldable_panels_pane-video-field_tile
+features[field][] = fieldable_panels_pane-video-field_title

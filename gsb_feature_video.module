@@ -57,7 +57,7 @@ function gsb_feature_video_field_formatter_view($entity_type, $entity, $field, $
   module_load_include('inc', 'media_youtube', '/includes/media_youtube.formatters.inc');
 
   $element = array();
-  $title = !empty($entity->field_tile) ? $entity->field_tile['und'][0]['value'] : '';
+  $title = !empty($entity->field_title) ? $entity->field_title['und'][0]['value'] : '';
   $summary = !empty($entity->field_body) ? $entity->field_body['und'][0]['value'] : '';
   $video = !empty($entity->field_file_single_public) ? $entity->field_file_single_public['und'][0] : '';
 
