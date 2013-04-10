@@ -29,7 +29,7 @@ function gsb_feature_video_ds_field_settings_info() {
         ),
       ),
     ),
-    'field_tile' => array(
+    'field_title' => array(
       'formatter_settings' => array(
         'ft' => array(
           'func' => 'theme_ds_field_expert',
@@ -65,14 +65,14 @@ function gsb_feature_video_ds_layout_settings_info() {
       'ds_content' => array(
         0 => 'field_file_single_public',
         1 => 'group_content_wrapper',
-        2 => 'field_tile',
+        2 => 'field_title',
         3 => 'field_body',
       ),
     ),
     'fields' => array(
       'field_file_single_public' => 'ds_content',
       'group_content_wrapper' => 'ds_content',
-      'field_tile' => 'ds_content',
+      'field_title' => 'ds_content',
       'field_body' => 'ds_content',
     ),
     'classes' => array(),

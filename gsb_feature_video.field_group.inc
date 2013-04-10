@@ -24,7 +24,7 @@ function gsb_feature_video_field_group_info() {
     'weight' => '1',
     'children' => array(
       0 => 'field_body',
-      1 => 'field_tile',
+      1 => 'field_title',
     ),
     'format_type' => 'div',
     'format_settings' => array(
