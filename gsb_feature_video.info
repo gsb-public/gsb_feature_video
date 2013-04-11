@@ -22,6 +22,7 @@ dependencies[] = taxonomy
 dependencies[] = text
 datestamp = 1364783563
 features[ctools][] = ds:ds:1
+features[ctools][] = field_group:field_group:1
 features[defaultconfig][] = strongarm:field_bundle_settings_fieldable_panels_pane__video
 features[ds_field_settings][] = fieldable_panels_pane|video|default
 features[ds_layout_settings][] = fieldable_panels_pane|video|default
