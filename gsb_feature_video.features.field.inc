@@ -244,7 +244,7 @@ function gsb_feature_video_field_default_fields() {
       ),
       'entity_type' => 'fieldable_panels_pane',
       'field_name' => 'field_title',
-      'label' => 'Tile',
+      'label' => 'Title',
       'required' => 0,
       'settings' => array(
         'linkit' => array(
@@ -272,7 +272,7 @@ function gsb_feature_video_field_default_fields() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Description');
-  t('Tile');
+  t('Title');
   t('Video');
 
   return $fields;
