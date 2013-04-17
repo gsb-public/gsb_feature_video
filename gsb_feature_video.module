@@ -37,3 +37,16 @@ include_once 'gsb_feature_video.features.inc';
   );
 
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter() for file_entity_edit().
+ */
+function gsb_feature_video_form_file_entity_edit_alter(&$form, &$form_state, $form_id) {
+  // If the file scheme is not writable, hide the destination fieldset and
+  // disable the filename.
+  $scheme = file_uri_scheme($form_state['file']->uri);
+  if (!isset($form['destination']['scheme']['#options'][$scheme])) {
+    $form['destination']['#access'] = FALSE;
+    $form['filename']['#disabled'] = TRUE;
+  }
+}
