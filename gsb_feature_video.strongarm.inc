@@ -1,24 +1,13 @@
 <?php
 /**
  * @file
- * gsb_feature_video.features.defaultconfig.inc
+ * gsb_feature_video.strongarm.inc
  */
 
 /**
- * Implements hook_defaultconfig_features().
+ * Implements hook_strongarm().
  */
-function gsb_feature_video_defaultconfig_features() {
-  return array(
-    'gsb_feature_video' => array(
-      'strongarm' => 'strongarm',
-    ),
-  );
-}
-
-/**
- * Implements hook_defaultconfig_strongarm().
- */
-function gsb_feature_video_defaultconfig_strongarm() {
+function gsb_feature_video_strongarm() {
   $export = array();
 
   $strongarm = new stdClass();
