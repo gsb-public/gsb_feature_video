@@ -28,7 +28,6 @@ features[ctools][] = strongarm:strongarm:1
 features[ds_field_settings][] = fieldable_panels_pane|video|default
 features[ds_layout_settings][] = fieldable_panels_pane|video|default
 features[features_api][] = api:1
-features[field_group][] = group_content_wrapper|fieldable_panels_pane|video|default
 features[field_instance][] = fieldable_panels_pane-video-field_body
 features[field_instance][] = fieldable_panels_pane-video-field_file_single_public
 features[field_instance][] = fieldable_panels_pane-video-field_title
