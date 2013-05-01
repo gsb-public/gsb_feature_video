@@ -23,7 +23,7 @@ function gsb_feature_video_field_default_field_instances() {
         'settings' => array(
           'conditions' => array(),
         ),
-        'type' => 'text_plain',
+        'type' => 'text_default',
         'weight' => 3,
       ),
       'ical' => array(
@@ -146,7 +146,7 @@ function gsb_feature_video_field_default_field_instances() {
         'settings' => array(
           'conditions' => array(),
         ),
-        'type' => 'text_plain',
+        'type' => 'text_default',
         'weight' => 2,
       ),
       'ical' => array(

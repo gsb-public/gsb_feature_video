@@ -19,26 +19,12 @@ function gsb_feature_video_ds_field_settings_info() {
   $ds_fieldsetting->settings = array(
     'field_body' => array(
       'formatter_settings' => array(
-        'ft' => array(
-          'func' => 'theme_ds_field_expert',
-          'fis' => TRUE,
-          'fis-el' => 'p',
-          'fis-cl' => '',
-          'fis-at' => '',
-          'fis-def-at' => TRUE,
-        ),
+        'ft' => array(),
       ),
     ),
     'field_title' => array(
       'formatter_settings' => array(
-        'ft' => array(
-          'func' => 'theme_ds_field_expert',
-          'fis' => TRUE,
-          'fis-el' => 'h4',
-          'fis-cl' => '',
-          'fis-at' => '',
-          'fis-def-at' => TRUE,
-        ),
+        'ft' => array(),
       ),
     ),
   );
@@ -64,14 +50,12 @@ function gsb_feature_video_ds_layout_settings_info() {
     'regions' => array(
       'ds_content' => array(
         0 => 'field_file_single_public',
-        1 => 'group_content_wrapper',
-        2 => 'field_title',
-        3 => 'field_body',
+        1 => 'field_title',
+        2 => 'field_body',
       ),
     ),
     'fields' => array(
       'field_file_single_public' => 'ds_content',
-      'group_content_wrapper' => 'ds_content',
       'field_title' => 'ds_content',
       'field_body' => 'ds_content',
     ),
