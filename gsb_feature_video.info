@@ -21,7 +21,7 @@ dependencies[] = panopoly_core
 dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = text
-datestamp = 1364783563
+datestamp = 1371136679
 features[ctools][] = ds:ds:1
 features[ctools][] = field_group:field_group:1
 features[ctools][] = strongarm:strongarm:1
@@ -32,10 +32,3 @@ features[field_instance][] = fieldable_panels_pane-video-field_body
 features[field_instance][] = fieldable_panels_pane-video-field_file_single_public
 features[field_instance][] = fieldable_panels_pane-video-field_title
 features[variable][] = field_bundle_settings_fieldable_panels_pane__video
-
-
-; Information added by drush on 2013-04-19
-version = "master-dev"
-project = "gsb_feature_video"
-datestamp = "1366432589"
-

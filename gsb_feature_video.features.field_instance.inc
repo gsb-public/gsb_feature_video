@@ -56,7 +56,7 @@ function gsb_feature_video_field_default_field_instances() {
         'rows' => 3,
       ),
       'type' => 'text_textarea',
-      'weight' => 4,
+      'weight' => -7,
     ),
     'workbench_access_field' => 0,
   );
@@ -128,7 +128,7 @@ function gsb_feature_video_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'media_generic',
-      'weight' => 1,
+      'weight' => -9,
     ),
     'workbench_access_field' => 0,
   );
@@ -177,7 +177,7 @@ function gsb_feature_video_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 3,
+      'weight' => -8,
     ),
     'workbench_access_field' => 0,
   );

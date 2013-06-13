@@ -38,7 +38,7 @@ function gsb_feature_video_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '0',
+          'weight' => '-10',
         ),
       ),
       'display' => array(
