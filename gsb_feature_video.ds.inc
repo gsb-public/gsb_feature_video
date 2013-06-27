@@ -17,12 +17,7 @@ function gsb_feature_video_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'video';
   $ds_fieldsetting->view_mode = 'default';
   $ds_fieldsetting->settings = array(
-    'field_body' => array(
-      'formatter_settings' => array(
-        'ft' => array(),
-      ),
-    ),
-    'field_title' => array(
+    'field_file_single_public' => array(
       'formatter_settings' => array(
         'ft' => array(),
       ),

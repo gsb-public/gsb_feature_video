@@ -73,9 +73,8 @@ function gsb_feature_video_field_default_field_instances() {
         'settings' => array(
           'conditions' => array(),
           'file_view_mode' => 'default',
-          'preview_view_mode' => 'teaser',
         ),
-        'type' => 'gsb_field_formatter_responsive_video',
+        'type' => 'gsb_field_formatter_image_or_video_popup',
         'weight' => 0,
       ),
       'ical' => array(
