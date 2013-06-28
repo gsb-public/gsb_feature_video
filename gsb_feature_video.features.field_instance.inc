@@ -72,7 +72,7 @@ function gsb_feature_video_field_default_field_instances() {
         'module' => 'gsb_field_formatter',
         'settings' => array(
           'conditions' => array(),
-          'file_view_mode' => 'teaser',
+          'file_view_mode' => 'preview',
         ),
         'type' => 'gsb_field_formatter_image_or_video_popup',
         'weight' => 0,
