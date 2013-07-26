@@ -1,16 +1,14 @@
 <?php
+
 /**
  * @file
  * Code for the GSB Feature Video feature.
  */
-
 include_once 'gsb_feature_video.features.inc';
 /**
  * @file
  * Code for the GSB Feature Video feature.
  */
-
-
 /**
  * Implements hook_entity_info_alter().
  *
@@ -18,7 +16,7 @@ include_once 'gsb_feature_video.features.inc';
  * 'video'.
  *
  */
- function gsb_feature_video_entity_info_alter(&$entity_info) {
+function gsb_feature_video_entity_info_alter(&$entity_info) {
 
   // create the GSB Video FPP
 
@@ -35,7 +33,6 @@ include_once 'gsb_feature_video.features.inc';
       'access arguments' => array('administer fieldable panels panes'),
     ),
   );
-
 }
 
 /**
@@ -49,4 +46,33 @@ function gsb_feature_video_form_file_entity_edit_alter(&$form, &$form_state, $fo
     $form['destination']['#access'] = FALSE;
     $form['filename']['#disabled'] = TRUE;
   }
+}
+
+/**
+ * Delete Media Youtube and Vimeo thumbnails on file delete.
+ *
+ * If we replace a thumbnail on Youtube server, the new thumbnail is never pulled.
+ * Media Youtube pulls thumbnails from Youtube only if we don't use image styles,
+ * or we don't have a thumbnail yet.
+ */
+function gsb_feature_video_file_delete($file) {
+  $scheme = file_uri_scheme($file->uri);
+  if (in_array($scheme, array('youtube', 'vimeo'))) {
+    $wrapper = file_stream_wrapper_get_instance_by_uri($file->uri);
+    $parts = $wrapper->get_parameters();
+    $file_name = check_plain($parts['v']) . '.jpg';
+
+    // Delete local thumbnail.
+    $local_thumbnail_path = $wrapper->getLocalThumbnailPath();
+    file_unmanaged_delete($local_thumbnail_path);
+
+    // Delete thumbnails in image style folders.
+    $image_styles = image_styles();
+    $default_scheme = file_default_scheme();
+    foreach ($image_styles as $name => $style) {
+      $image_style_thumbnail = $default_scheme . '://styles/' . $style['name'] .
+        '/' . $default_scheme . '/media-' . $scheme . '/' . $file_name;
+      file_unmanaged_delete($image_style_thumbnail);
+    }
+  };
 }
