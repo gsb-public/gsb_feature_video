@@ -17,7 +17,6 @@ dependencies[] = gsb_feature_base_fields
 dependencies[] = gsb_field_formatter
 dependencies[] = media
 dependencies[] = number
-dependencies[] = panopoly_core
 dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = text
