@@ -96,8 +96,7 @@ function gsb_feature_video_entity_view($entity, $type, $view_mode, $langcode) {
         $duration = $data['items'][0]['contentDetails']['duration'];
         $duration = _gsb_feature_video_convert_time($duration);
         $entity->content['field_file_single_public'][0]['item']['#suffix'] =
-          '<div class="video-duration">' . $duration . '</div>' .
-
+          '<div class="video-duration">'.$duration.'</div>';
       }
     }
 
@@ -109,7 +108,6 @@ function gsb_feature_video_entity_view($entity, $type, $view_mode, $langcode) {
         $viewCount = number_format($data['items'][0]['statistics']['viewCount']);
         $entity->content['field_title']['#suffix'] =
           '<div class="video-viewcount">'.$viewCount.'<span> views</span></div>';
-        );
       }
     }
   }
