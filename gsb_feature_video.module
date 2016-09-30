@@ -75,3 +75,73 @@ function gsb_feature_video_file_delete($file) {
     }
   };
 }
+
+/**
+ * Implements hook_entity_view().
+ *
+ *  - Render the Video Duration
+ */
+function gsb_feature_video_entity_view($entity, $type, $view_mode, $langcode) {
+  if ($type == 'fieldable_panels_pane' && $entity->bundle == 'video') {
+    // Get video id from the video url
+    $video_url = $entity->field_file_single_public['und'][0]['uri'];
+    $video_id = _gsb_feature_video_get_video_id($video_url);
+    // Render Video Duration
+    $data = _gsb_feature_video_get_video_contentdetails($video_id);
+    if ($data) {
+      $data = drupal_json_decode($data);
+      if (!empty($data['items'][0]['contentDetails']['duration'])) {
+        $duration = $data['items'][0]['contentDetails']['duration'];
+        $duration = _gsb_feature_video_convert_time($duration);
+        $entity->content['field_file_single_public'][0]['item']['#suffix'] =
+          '<div class="video-duration">' . $duration . '</div>';
+      }
+    }
+  }
+}
+
+/**
+ * Call Google to get video statistics for the video: $video_id
+ */
+function _gsb_feature_video_get_video_contentdetails($video_id) {
+  $google_browser_api_key = variable_get('video_embed_field_youtube_v3_api_key', '');
+  $google_api_url = 'https://www.googleapis.com/youtube/v3/videos?';
+  $data = null;
+  $result = drupal_http_request($google_api_url . 'part=contentDetails' . '&key=' . $google_browser_api_key .'&id=' . $video_id);
+  if ($result->code == 200) {
+    $data = $result->data;
+  }
+  return $data;
+}
+
+/**
+ * Get the video id from the video url.
+ */
+function _gsb_feature_video_get_video_id($video_url) {
+  $video_parts = drupal_parse_url($video_url);
+  $video_id = '';
+  if (strpos($video_parts['path'], 'youtube') !== false) {
+    $pos = strpos($video_parts['path'], 'youtube');
+    $video_id = substr($video_parts['path'], $pos + strlen('youtube') + 1);
+    $video_id = str_replace('//v/', '', $video_id);
+  }
+  return $video_id;
+}
+
+function _gsb_feature_video_convert_time($duration) {
+  preg_match_all('/(\d+)/',$duration,$parts);
+  $hours = $parts[0][0];
+  $minutes = $parts[0][1];
+  $seconds = 0;
+  if (!empty($parts[0][2])) {
+    $seconds = $parts[0][2];
+  }
+  $minutes = sprintf('%02d', $minutes);
+  if ($seconds != 0) {
+    $seconds = sprintf('%02d', $seconds);
+    return $hours.':'.$minutes.':'.$seconds;
+  }
+  else {
+    return $hours.':'.$minutes;
+  }
+}
