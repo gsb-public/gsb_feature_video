@@ -10,7 +10,7 @@
 function gsb_feature_video_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'fieldable_panels_pane-video-field_body'
+  // Exported field_instance: 'fieldable_panels_pane-video-field_body'.
   $field_instances['fieldable_panels_pane-video-field_body'] = array(
     'bundle' => 'video',
     'default_value' => NULL,
@@ -63,7 +63,8 @@ function gsb_feature_video_field_default_field_instances() {
     'workbench_access_field' => 0,
   );
 
-  // Exported field_instance: 'fieldable_panels_pane-video-field_file_single_public'
+  // Exported field_instance:
+  // 'fieldable_panels_pane-video-field_file_single_public'.
   $field_instances['fieldable_panels_pane-video-field_file_single_public'] = array(
     'bundle' => 'video',
     'deleted' => 0,
@@ -136,7 +137,7 @@ function gsb_feature_video_field_default_field_instances() {
     'workbench_access_field' => 0,
   );
 
-  // Exported field_instance: 'fieldable_panels_pane-video-field_title'
+  // Exported field_instance: 'fieldable_panels_pane-video-field_title'.
   $field_instances['fieldable_panels_pane-video-field_title'] = array(
     'bundle' => 'video',
     'default_value' => NULL,
